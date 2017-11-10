@@ -2,13 +2,19 @@
 <html>
 	<head>
 		<style>
-			h1 {
-				
-			}
+		h1 {
+			padding: 0.3em;
+		}
+		.centerVertically {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%); /* or try 50% */
+		}
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
 		<script>
-			const arr = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
+			const example_input = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
 			
 			function calc() {
 				const i = document.getElementById('i');
@@ -45,16 +51,18 @@
 	</head>
 	<body>
 	<h1>TCP Checksum Calculator</h1>
+	<br>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<textarea id="i" type="text" class="form-control"></textarea>
+				<p>Provide integers separated by a single space here.</p>
+				<textarea id="i" class="form-control" title="input"></textarea>
 			</div>
 			<div class="col-md-2">
-				<button id="btnCalc" class="btn" onclick="calc()">Calc</button>
+				<button id="btnCalc" class="btn centerVertically" onclick="calc()">Calc</button>
 			</div>
 			<div class="col-md-5">
-				<input id="o" type="text" class="form-control" value="">
+				<input id="o" type="text" class="form-control" value="Your checksum will be displayed here." title="output">
 			</div>
 		</div>
 	</div>

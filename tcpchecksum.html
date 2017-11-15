@@ -15,7 +15,6 @@
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
 	 crossorigin="anonymous">
-
 	<script>
 		const example_input = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
 
@@ -54,17 +53,27 @@
 </head>
 
 <body>
-	<h1>TCP Checksum Calculator</h1>
-	<br>
+
+
 	<div class="container">
+		<h1>TCP Checksum Calculator</h1>
+		<div class="jumbotron">
+			<p class="lead">This is a simple checksum calculator, that calculates a TCP-checksum for 16-Bit values.</p>
+			<hr class="my-4">
+			<p class="lead text-center">
+				<button class="btn btn-primary btn-lg" onclick="calc()">Calculate</button>
+			</p>
+		</div>
 		<div class="row">
-			<div class="col-md-5">
+				<div class="col-md-6">
+					<p>DEC</p>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-6">
 				<textarea id="i" class="form-control" title="input" placeholder="Provide 16-bit integers separated by a single space here"></textarea>
 			</div>
-			<div class="col-md-2 text-center">
-				<button id="btnCalc" class="btn centerVertically" onclick="calc()">Calc</button>
-			</div>
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<input id="o" type="text" class="form-control centerVertically" readonly value="Your checksum will be displayed here." title="output">
 			</div>
 		</div>

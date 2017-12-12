@@ -32,15 +32,11 @@
 
 			arr.forEach((e) => {
 				e = e & 0xFFFF;
-
 				sum += e;
-				overflow = sum & 0x10000;
-				sum = sum & 0xFFFF;
 
-				while (overflow > 0) {
-					sum += 1;
-					overflow = sum & 0x10000;
+				if (sum > 65535) {
 					sum = sum & 0xFFFF;
+					sum += 1;
 				}
 			});
 

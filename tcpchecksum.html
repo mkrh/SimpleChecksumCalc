@@ -6,7 +6,7 @@
 			padding: 0.3em;
 		}
 
-		.centerVertically {
+		.center-vertically {
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
@@ -32,7 +32,6 @@
 
 			arr.forEach((e) => {
         e = Number(e);
-				//e = e & 0xFFFF;
 				sum += e;
 
 				if (sum > 65535) {
@@ -64,10 +63,12 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<textarea id="input" class="form-control" title="input" placeholder="Provide 16-bit integers separated by a single space here"></textarea>
+          <textarea id="input" class="form-control" title="Provide 16-bit integers separated by a single space here"
+            placeholder="Provide 16-bit integers separated by a single space here"></textarea>
 				</div>
 				<div class="col-md-6">
-					<input id="output" type="text" class="form-control centerVertically" readonly value="Your checksum will be displayed here." title="output">
+          <input id="output" type="text" readonly class="form-control center-vertically" value="Your checksum will be displayed here"
+            title="Your checksum will be displayed here">
 				</div>
 			</div>
 		</div>

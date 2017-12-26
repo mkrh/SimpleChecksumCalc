@@ -12,17 +12,17 @@
 			transform: translateY(-50%);
 		}
 	</style>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	 crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<script>
 		const example_input = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
 
 		function calc() {
-			const i = document.getElementById('i');
-			const o = document.getElementById('o');
+			const input = document.getElementById('input');
+			const output = document.getElementById('output');
 
-			if (i) {
-				o.value = sum(i.value.split(' '));
+			if (input) {
+				output.value = sum(input.value.split(' '));
 			}
 		}
 
@@ -31,7 +31,8 @@
 			let overflow = 0;
 
 			arr.forEach((e) => {
-				e = e & 0xFFFF;
+        e = Number(e);
+				//e = e & 0xFFFF;
 				sum += e;
 
 				if (sum > 65535) {
@@ -63,10 +64,10 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<textarea id="i" class="form-control" title="input" placeholder="Provide 16-bit integers separated by a single space here"></textarea>
+					<textarea id="input" class="form-control" title="input" placeholder="Provide 16-bit integers separated by a single space here"></textarea>
 				</div>
 				<div class="col-md-6">
-					<input id="o" type="text" class="form-control centerVertically" readonly value="Your checksum will be displayed here." title="output">
+					<input id="output" type="text" class="form-control centerVertically" readonly value="Your checksum will be displayed here." title="output">
 				</div>
 			</div>
 		</div>

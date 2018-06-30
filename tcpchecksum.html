@@ -1,76 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<style>
-		h1 {
-			padding: 0.3em;
-		}
+  <style>
+    h1 {
+      padding: 0.3em;
+    }
 
-		.center-vertically {
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-	</style>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
-    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<script>
-		const example_input = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
-
-		function calc() {
-			const input = document.getElementById('input');
-			const output = document.getElementById('output');
-
-			if (input) {
-				output.value = sum(input.value.split(' '));
-			}
-		}
-
-		function sum(arr) {
-			let sum = 0;
-			let overflow = 0;
-
-			arr.forEach((e) => {
-        e = Number(e);
-				sum += e;
-
-				if (sum > 65535) {
-					sum = sum & 0xFFFF;
-					sum += 1;
-				}
-			});
-
-			sum = ~sum;
-			sum = sum & 0xFFFF;
-			return sum;
-		}
-	</script>
+    .center-vertically {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
 </head>
-	<body>
-		<div class="container">
-			<h1>TCP Checksum Calculator</h1>
-			<div class="jumbotron">
-				<p class="lead">This simple checksum calculator calculates a TCP-checksum for 16-Bit values.</p>
-				<hr class="my-4">
-				<p class="lead text-center">
-					<button class="btn btn-primary btn-lg" onclick="calc()">Calculate</button>
-				</p>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<p>DEC</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-          <textarea id="input" class="form-control" title="Provide 16-bit integers separated by a single space here"
-            placeholder="Provide 16-bit integers separated by a single space here"></textarea>
-				</div>
-				<div class="col-md-6">
-          <input id="output" type="text" readonly class="form-control center-vertically" value="Your checksum will be displayed here"
-            title="Your checksum will be displayed here">
-				</div>
-			</div>
-		</div>
-	</body>
+
+<body>
+  <div class="container">
+    <h1>TCP Checksum Calculator</h1>
+    <div class="jumbotron">
+      <p class="lead">This simple checksum calculator calculates a TCP-checksum for 16-Bit values.</p>
+      <hr class="my-4">
+      <p class="lead text-center">
+        <button class="btn btn-primary btn-lg" onclick="calc()">Calculate</button>
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p>DEC</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <textarea id="input" class="form-control" title="Provide 16-bit integers separated by a single space here" placeholder="Provide 16-bit integers separated by a single space here"></textarea>
+      </div>
+      <div class="col-md-6">
+        <input id="output" type="text" readonly class="form-control center-vertically" value="Your checksum will be displayed here"
+          title="Your checksum will be displayed here">
+      </div>
+    </div>
+  </div>
+  <script>
+    const example_input = [61416, 464, 47856, 7874, 32165, 45687, 10021, 8985, 65501, 57458, 41234, 14549];
+
+    function calc() {
+      const input = document.getElementById('input');
+      const output = document.getElementById('output');
+
+      if (input) {
+        output.value = sum(input.value.split(' '));
+      }
+    }
+
+    function sum(arr) {
+      let sum = 0;
+      let overflow = 0;
+
+      arr.forEach((e) => {
+        e = Number(e);
+        sum += e;
+
+        if (sum > 65535) {
+          sum = sum & 0xFFFF;
+          sum += 1;
+        }
+      });
+
+      sum = ~sum;
+      sum = sum & 0xFFFF;
+      return sum;
+    }
+  </script>
+</body>
+
 </html>
